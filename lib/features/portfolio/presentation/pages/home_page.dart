@@ -91,12 +91,7 @@ class _HomePageState extends State<HomePage> {
                           width: 2,
                         ),
                       ),
-                      child: ClipOval(
-                        child: Image.asset(
-                          'assets/images/avatar.jpg',
-                          fit: BoxFit.fill,
-                        ),
-                      ),
+                      child: ClipOval(child: Center(child: Text("A"))),
                     ),
 
                     const SizedBox(width: 16),
