@@ -274,8 +274,8 @@ class _HeroSectionState extends State<HeroSection>
               String downloadUrl = cvUrl;
               if (!downloadUrl.contains('download=')) {
                 downloadUrl += downloadUrl.contains('?')
-                    ? '&download='
-                    : '?download=';
+                    ? '&download=AbdllahElAwadiResume.pdf'
+                    : '?download=AbdllahElAwadiResume.pdf';
               }
               final uri = Uri.parse(downloadUrl);
               if (await canLaunchUrl(uri)) {
