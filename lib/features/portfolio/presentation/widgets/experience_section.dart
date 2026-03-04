@@ -24,7 +24,7 @@ class ExperienceSection extends StatelessWidget {
             children: [
               Container(
                 height: 2,
-                width: 60,
+                width: 30,
                 color: theme.colorScheme.primary.withOpacity(0.3),
               ),
               Padding(
@@ -41,7 +41,7 @@ class ExperienceSection extends StatelessWidget {
               ),
               Container(
                 height: 2,
-                width: 60,
+                width: 30,
                 color: theme.colorScheme.primary.withOpacity(0.3),
               ),
             ],
