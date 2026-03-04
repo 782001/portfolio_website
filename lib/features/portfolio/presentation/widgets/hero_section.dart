@@ -95,7 +95,7 @@ class _HeroSectionState extends State<HeroSection>
                   textAlign: TextAlign.center,
                   style: GoogleFonts.outfit(
                     fontWeight: FontWeight.w900,
-                    fontSize: 100,
+                    fontSize: 65,
                     color: Colors.white,
                     letterSpacing: -4,
                     height: 1.0,

@@ -15,7 +15,7 @@ class ContactSection extends StatelessWidget {
       return Icons.phone_android_rounded;
     }
     if (platform.contains('github')) return Icons.code_rounded;
-    if (platform.contains('linkedin')) return Icons.work_rounded;
+    if (platform.contains('linkedin')) return Icons.code_rounded;
     if (platform.contains('twitter') || platform.contains('x')) {
       return Icons.share_rounded;
     }
@@ -59,16 +59,7 @@ class ContactSection extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 32),
-          Text(
-            'Get In Touch',
-            style: GoogleFonts.outfit(
-              fontWeight: FontWeight.w900,
-              fontSize: 64,
-              color: Colors.white,
-              letterSpacing: -2,
-            ),
-          ),
+
           const SizedBox(height: 40),
           Text(
             'Currently open for new opportunities.',

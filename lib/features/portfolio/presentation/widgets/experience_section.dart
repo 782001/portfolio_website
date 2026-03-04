@@ -15,7 +15,7 @@ class ExperienceSection extends StatelessWidget {
 
     final theme = Theme.of(context);
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 120),
+      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 40),
       width: double.infinity,
       child: Column(
         children: [
@@ -30,7 +30,7 @@ class ExperienceSection extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: Text(
-                  'JOURNEY',
+                  'EXPERIENCE',
                   style: GoogleFonts.outfit(
                     letterSpacing: 6,
                     fontWeight: FontWeight.w900,
@@ -46,17 +46,7 @@ class ExperienceSection extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 32),
-          Text(
-            'Work Experience',
-            style: GoogleFonts.outfit(
-              fontWeight: FontWeight.w900,
-              fontSize: 50,
-              color: Colors.white,
-              letterSpacing: -2,
-            ),
-          ),
-          // const SizedBox(height: 50),
+
           ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 1000),
             child: ScreenTypeLayout.builder(

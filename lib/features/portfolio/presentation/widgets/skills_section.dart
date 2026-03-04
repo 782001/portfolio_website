@@ -45,16 +45,7 @@ class SkillsSection extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 32),
-          Text(
-            'Technical Skills',
-            style: GoogleFonts.outfit(
-              fontWeight: FontWeight.w900,
-              fontSize: 50,
-              color: Colors.white,
-              letterSpacing: -2,
-            ),
-          ),
+
           const SizedBox(height: 80),
           Center(
             child: ConstrainedBox(
