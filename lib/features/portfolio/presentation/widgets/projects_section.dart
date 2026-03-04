@@ -69,8 +69,8 @@ class ProjectsSection extends StatelessWidget {
           const SizedBox(height: 32),
 
           ScreenTypeLayout.builder(
-            mobile: (_) => _buildGrid(context, 1, 0.9, 24),
-            tablet: (_) => _buildGrid(context, 2, 0.7, 32),
+            mobile: (_) => _buildGrid(context, 2, 0.45, 16),
+            tablet: (_) => _buildGrid(context, 3, 0.48, 24),
             desktop: (_) => _buildGrid(context, 3, 0.45, 48),
           ),
         ],
@@ -116,6 +116,12 @@ class _ProjectCardState extends State<_ProjectCard> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final isMobile = getValueForScreenType<bool>(
+      context: context,
+      mobile: true,
+      tablet: false,
+      desktop: false,
+    );
     return MouseRegion(
       onEnter: (_) => setState(() => _isHovered = true),
       onExit: (_) => setState(() => _isHovered = false),
@@ -198,8 +204,8 @@ class _ProjectCardState extends State<_ProjectCard> {
                       // Logo
                       if (widget.project.logoUrl != null)
                         Positioned(
-                          top: 24,
-                          left: 24,
+                          top: isMobile ? 12 : 24,
+                          left: isMobile ? 12 : 24,
                           child: Container(
                             padding: const EdgeInsets.all(4),
                             decoration: BoxDecoration(
@@ -211,8 +217,8 @@ class _ProjectCardState extends State<_ProjectCard> {
                               borderRadius: BorderRadius.circular(12),
                               child: Image.network(
                                 widget.project.logoUrl!,
-                                width: 48,
-                                height: 48,
+                                width: isMobile ? 24 : 48,
+                                height: isMobile ? 24 : 48,
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -220,15 +226,15 @@ class _ProjectCardState extends State<_ProjectCard> {
                         ),
                       // Tag
                       Positioned(
-                        bottom: 24,
-                        left: 24,
+                        bottom: isMobile ? 12 : 24,
+                        left: isMobile ? 12 : 24,
                         child: AnimatedOpacity(
                           duration: const Duration(milliseconds: 300),
                           opacity: _isHovered ? 1 : 0.8,
                           child: Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 16,
-                              vertical: 8,
+                            padding: EdgeInsets.symmetric(
+                              horizontal: isMobile ? 10 : 16,
+                              vertical: isMobile ? 6 : 8,
                             ),
                             decoration: BoxDecoration(
                               color: theme.colorScheme.primary,
@@ -239,8 +245,8 @@ class _ProjectCardState extends State<_ProjectCard> {
                               style: GoogleFonts.outfit(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w900,
-                                fontSize: 10,
-                                letterSpacing: 2,
+                                fontSize: isMobile ? 8 : 10,
+                                letterSpacing: isMobile ? 1 : 2,
                               ),
                             ),
                           ),
@@ -250,9 +256,9 @@ class _ProjectCardState extends State<_ProjectCard> {
                   ),
                 ),
               ),
-              const SizedBox(height: 32),
+              SizedBox(height: isMobile ? 16 : 32),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
+                padding: EdgeInsets.symmetric(horizontal: isMobile ? 4 : 12),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -260,28 +266,28 @@ class _ProjectCardState extends State<_ProjectCard> {
                       widget.project.title,
                       style: GoogleFonts.outfit(
                         fontWeight: FontWeight.w900,
-                        fontSize: 28,
+                        fontSize: isMobile ? 18 : 28,
                         color: _isHovered
                             ? theme.colorScheme.primary
                             : Colors.white,
-                        letterSpacing: -1,
+                        letterSpacing: isMobile ? 0 : -1,
                       ),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    const SizedBox(height: 12),
+                    const SizedBox(height: 8),
                     Text(
                       widget.project.description,
                       style: GoogleFonts.outfit(
                         color: Colors.grey.shade500,
-                        height: 1.6,
-                        fontSize: 16,
+                        height: 1.4,
+                        fontSize: isMobile ? 12 : 16,
                         fontWeight: FontWeight.w400,
                       ),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    const SizedBox(height: 24),
+                    SizedBox(height: isMobile ? 16 : 24),
                     Row(
                       children: [
                         Text(
@@ -289,19 +295,20 @@ class _ProjectCardState extends State<_ProjectCard> {
                           style: GoogleFonts.outfit(
                             color: theme.colorScheme.primary,
                             fontWeight: FontWeight.w900,
-                            letterSpacing: 2,
-                            fontSize: 12,
+                            letterSpacing: isMobile ? 1 : 2,
+                            fontSize: isMobile ? 10 : 12,
                           ),
                         ),
-                        const SizedBox(width: 8),
+                        SizedBox(width: isMobile ? 4 : 8),
                         AnimatedContainer(
                           duration: const Duration(milliseconds: 300),
                           transform: _isHovered
-                              ? (Matrix4.identity()..translate(8, 0, 0))
+                              ? (Matrix4.identity()
+                                  ..translate(isMobile ? 4.0 : 8.0, 0.0, 0.0))
                               : Matrix4.identity(),
                           child: Icon(
                             Icons.arrow_forward_rounded,
-                            size: 18,
+                            size: isMobile ? 14 : 18,
                             color: theme.colorScheme.primary,
                           ),
                         ),
