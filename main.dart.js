@@ -83478,7 +83478,7 @@ m=n.a.c
 l=m==null?null:m.f
 s=l!=null&&l.length!==0?2:4
 break
-case 2:if(!B.c.t(l,"download="))p=l+(B.c.t(l,"?")?"&download=":"?download=")
+case 2:if(!B.c.t(l,"download="))p=l+(B.c.t(l,"?")?"&download=AbdllahElAwadiResume.pdf":"?download=AbdllahElAwadiResume.pdf")
 else p=l
 o=A.d3(p,0,null)
 s=7
