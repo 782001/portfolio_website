@@ -83453,24 +83453,26 @@ if(q==null)q=""
 return A.b9(B.ao,A.il(!1,A.jA(new A.e7(B.A1,A.d0(A.b([p,B.hs,o,B.hr,r,B.dp,new A.e7(B.lo,A.Le(q,A.to(m,m,m,B.m,m,m,m,m,B.m,m,m,m,m,m,B.m,m,m,B.m,m,m,B.m,m,m,B.m,m,m,B.m,m,m,B.m,m,m,m,m,m,m,B.m,A.b7().$4$color$fontSize$fontWeight$height(B.cj,22,B.p,1.8),m,m,m,m,m,m,m,m,m,m,m,m,B.cJ,B.m,m,m,B.m)),m),B.hs,l.M7(k,!0)],n),B.H,B.w,B.z),m),s,m,!0),j),B.l,m,m,m,m,m,m,B.Du,m,m,1/0)},
 $S:10}
 A.alV.prototype={
-$0(){var s=0,r=A.C(t.H),q=this,p,o,n,m
+$0(){var s=0,r=A.C(t.H),q=this,p,o,n,m,l
 var $async$$0=A.D(function(a,b){if(a===1)return A.z(b,r)
-for(;;)switch(s){case 0:o=q.a
-n=o.a.c
-m=n==null?null:n.f
-s=m!=null&&m.length!==0?2:4
+for(;;)switch(s){case 0:n=q.a
+m=n.a.c
+l=m==null?null:m.f
+s=l!=null&&l.length!==0?2:4
 break
-case 2:p=A.d2(m,0,null)
+case 2:if(!B.c.t(l,"download="))p=l+(B.c.t(l,"?")?"&download=":"?download=")
+else p=l
+o=A.d2(p,0,null)
 s=7
-return A.u(A.XN(p),$async$$0)
+return A.u(A.XN(o),$async$$0)
 case 7:s=b?5:6
 break
 case 5:s=8
-return A.u(A.XW(p,B.FN),$async$$0)
+return A.u(A.XW(o,B.FN),$async$$0)
 case 8:case 6:s=3
 break
-case 4:o=o.c
-if(o.e!=null)o.ag(t.Pu).f.Zp(B.Oc)
+case 4:n=n.c
+if(n.e!=null)n.ag(t.Pu).f.Zp(B.Oc)
 case 3:return A.A(null,r)}})
 return A.B($async$$0,r)},
 $S:15}
