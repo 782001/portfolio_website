@@ -15,7 +15,19 @@ class ProjectsSection extends StatelessWidget {
 
     final theme = Theme.of(context);
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 30),
+      padding: EdgeInsets.symmetric(
+        horizontal: getValueForScreenType<double>(
+          context: context,
+          mobile: 24,
+          tablet: 40,
+          desktop: 40,
+        ),
+        vertical: getValueForScreenType<double>(
+          context: context,
+          mobile: 60,
+          desktop: 120,
+        ),
+      ),
       width: double.infinity,
       child: Column(
         children: [
@@ -32,10 +44,18 @@ class ProjectsSection extends StatelessWidget {
                 child: Text(
                   'Projects',
                   style: GoogleFonts.outfit(
-                    letterSpacing: 6,
+                    letterSpacing: getValueForScreenType<double>(
+                      context: context,
+                      mobile: 4,
+                      desktop: 6,
+                    ),
                     fontWeight: FontWeight.w900,
                     color: theme.colorScheme.primary,
-                    fontSize: 30,
+                    fontSize: getValueForScreenType<double>(
+                      context: context,
+                      mobile: 24,
+                      desktop: 30,
+                    ),
                   ),
                 ),
               ),
@@ -49,24 +69,29 @@ class ProjectsSection extends StatelessWidget {
           const SizedBox(height: 32),
 
           ScreenTypeLayout.builder(
-            mobile: (_) => _buildGrid(context, 2),
-            tablet: (_) => _buildGrid(context, 3),
-            desktop: (_) => _buildGrid(context, 3),
+            mobile: (_) => _buildGrid(context, 1, 0.9, 24),
+            tablet: (_) => _buildGrid(context, 2, 0.7, 32),
+            desktop: (_) => _buildGrid(context, 3, 0.45, 48),
           ),
         ],
       ),
     );
   }
 
-  Widget _buildGrid(BuildContext context, int crossAxisCount) {
+  Widget _buildGrid(
+    BuildContext context,
+    int crossAxisCount,
+    double childAspectRatio,
+    double spacing,
+  ) {
     return GridView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: crossAxisCount,
-        mainAxisSpacing: 48,
-        crossAxisSpacing: 48,
-        childAspectRatio: 0.4, // Optimized for 375x812 vertical screenshots
+        mainAxisSpacing: spacing,
+        crossAxisSpacing: spacing,
+        childAspectRatio: childAspectRatio,
       ),
       itemCount: projects.length,
       itemBuilder: (context, index) {
