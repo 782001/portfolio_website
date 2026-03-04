@@ -271,7 +271,13 @@ class _HeroSectionState extends State<HeroSection>
 
             final cvUrl = widget.settings?.cvUrl;
             if (cvUrl != null && cvUrl.isNotEmpty) {
-              final uri = Uri.parse(cvUrl);
+              String downloadUrl = cvUrl;
+              if (!downloadUrl.contains('download=')) {
+                downloadUrl += downloadUrl.contains('?')
+                    ? '&download='
+                    : '?download=';
+              }
+              final uri = Uri.parse(downloadUrl);
               if (await canLaunchUrl(uri)) {
                 await launchUrl(uri, mode: LaunchMode.externalApplication);
               }
