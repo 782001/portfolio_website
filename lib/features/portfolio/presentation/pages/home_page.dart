@@ -184,7 +184,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                           ProjectsSection(
                             key: _projectsKey,
-                            projects: data.projects,
+                            projects: data.projects.reversed.toList(),
                           ),
                           EducationSection(education: data.education),
                           ContactSection(
