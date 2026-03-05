@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:go_router/go_router.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import '../../domain/entities/portfolio_data_entity.dart';
-import 'project_detail_dialog.dart';
 
 class ProjectsSection extends StatelessWidget {
   final List<ProjectEntity> projects;
@@ -137,14 +137,7 @@ class _ProjectCardState extends State<_ProjectCard> {
             : Matrix4.identity(),
         child: GestureDetector(
           onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) =>
-                    ProjectDetailDialog(project: widget.project),
-                fullscreenDialog: true,
-              ),
-            );
+            context.push('/project/${widget.project.id}');
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

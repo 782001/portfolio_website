@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../domain/entities/portfolio_data_entity.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -116,7 +117,13 @@ class ProjectDetailDialog extends StatelessWidget {
               color: Colors.black.withOpacity(0.5),
               shape: const CircleBorder(),
               child: InkWell(
-                onTap: () => Navigator.pop(context),
+                onTap: () {
+                  if (context.canPop()) {
+                    context.pop();
+                  } else {
+                    context.go('/');
+                  }
+                },
                 borderRadius: BorderRadius.circular(50),
                 child: Container(
                   padding: const EdgeInsets.all(12),
@@ -483,7 +490,7 @@ class _FullScreenGalleryViewerState extends State<_FullScreenGalleryViewer> {
             onPageChanged: (index) => setState(() => _currentIndex = index),
             itemBuilder: (context, index) {
               return GestureDetector(
-                onTap: () => Navigator.pop(context),
+                onTap: () => context.pop(),
                 child: Center(
                   child: InteractiveViewer(
                     maxScale: 4.0,
@@ -508,7 +515,7 @@ class _FullScreenGalleryViewerState extends State<_FullScreenGalleryViewer> {
             top: 40,
             right: 40,
             child: GestureDetector(
-              onTap: () => Navigator.pop(context),
+              onTap: () => context.pop(),
               child: Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
