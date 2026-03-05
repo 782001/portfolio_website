@@ -82,6 +82,9 @@ class PortfolioRepositoryImpl implements PortfolioRepository {
         githubUrl: e['github_url']?.toString(),
         driveUrl: e['drive_url']?.toString(),
         logoUrl: e['logo_url']?.toString(),
+        orderIndex: e['order_index'] != null
+            ? int.tryParse(e['order_index'].toString()) ?? 0
+            : 0,
         imageUrls: imageUrls,
       );
     }).toList();

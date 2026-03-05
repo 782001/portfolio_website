@@ -88,6 +88,7 @@ class ProjectEntity extends Equatable {
   final String? githubUrl;
   final String? driveUrl;
   final String? logoUrl;
+  final int orderIndex;
   final List<String> imageUrls;
 
   const ProjectEntity({
@@ -99,6 +100,7 @@ class ProjectEntity extends Equatable {
     this.githubUrl,
     this.driveUrl,
     this.logoUrl,
+    this.orderIndex = 0,
     this.imageUrls = const [],
   });
 
@@ -112,6 +114,7 @@ class ProjectEntity extends Equatable {
     githubUrl,
     driveUrl,
     logoUrl,
+    orderIndex,
     imageUrls,
   ];
 }
