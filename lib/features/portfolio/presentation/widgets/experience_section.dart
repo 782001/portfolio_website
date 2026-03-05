@@ -246,7 +246,7 @@ class ExperienceSection extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Text(
-                  '${exp.startDate.split('-').last}  -  ${exp.startDate.split('-').first}',
+                  '${exp.startDate}  -  ${exp.endDate}',
                   style: GoogleFonts.outfit(
                     color: theme.colorScheme.primary,
                     fontWeight: FontWeight.w800,
