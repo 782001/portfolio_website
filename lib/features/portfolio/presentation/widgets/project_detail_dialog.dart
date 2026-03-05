@@ -493,31 +493,35 @@ class _FullScreenGalleryViewerState extends State<_FullScreenGalleryViewer> {
           onTap: () => context.pop(),
           child: Stack(
             children: [
-              // Swipeable Page Gallery
-              PageView.builder(
-                controller: _pageController,
-                physics: const BouncingScrollPhysics(),
-                itemCount: widget.imageUrls.length,
-                onPageChanged: (index) => setState(() => _currentIndex = index),
-                itemBuilder: (context, index) {
-                  return Center(
-                    child: InteractiveViewer(
-                      maxScale: 4.0,
-                      child: Image.network(
-                        widget.imageUrls[index],
-                        fit: BoxFit.contain,
-                        loadingBuilder: (context, child, loadingProgress) {
-                          if (loadingProgress == null) return child;
-                          return const Center(
-                            child: CircularProgressIndicator(
-                              color: Colors.white,
-                            ),
-                          );
-                        },
+              // Swipeable Page Gallery (with mouse drag support)
+              ScrollConfiguration(
+                behavior: _WebScrollBehavior(),
+                child: PageView.builder(
+                  controller: _pageController,
+                  physics: const BouncingScrollPhysics(),
+                  itemCount: widget.imageUrls.length,
+                  onPageChanged: (index) =>
+                      setState(() => _currentIndex = index),
+                  itemBuilder: (context, index) {
+                    return Center(
+                      child: InteractiveViewer(
+                        maxScale: 4.0,
+                        child: Image.network(
+                          widget.imageUrls[index],
+                          fit: BoxFit.contain,
+                          loadingBuilder: (context, child, loadingProgress) {
+                            if (loadingProgress == null) return child;
+                            return const Center(
+                              child: CircularProgressIndicator(
+                                color: Colors.white,
+                              ),
+                            );
+                          },
+                        ),
                       ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
 
               // Close Button
