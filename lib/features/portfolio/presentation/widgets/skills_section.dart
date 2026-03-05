@@ -14,7 +14,7 @@ class SkillsSection extends StatelessWidget {
     final theme = Theme.of(context);
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 120),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       width: double.infinity,
       child: Column(
         children: [

@@ -15,7 +15,7 @@ class ExperienceSection extends StatelessWidget {
 
     final theme = Theme.of(context);
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 40),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
       width: double.infinity,
       child: Column(
         children: [
@@ -24,7 +24,7 @@ class ExperienceSection extends StatelessWidget {
             children: [
               Container(
                 height: 2,
-                width: 30,
+                width: 15,
                 color: theme.colorScheme.primary.withOpacity(0.3),
               ),
               Padding(
@@ -41,7 +41,7 @@ class ExperienceSection extends StatelessWidget {
               ),
               Container(
                 height: 2,
-                width: 30,
+                width: 15,
                 color: theme.colorScheme.primary.withOpacity(0.3),
               ),
             ],
@@ -207,7 +207,7 @@ class ExperienceSection extends StatelessWidget {
     final theme = Theme.of(context);
     return Container(
       margin: const EdgeInsets.only(bottom: 40),
-      padding: const EdgeInsets.all(32),
+      padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: const Color(0xFF0F0F0F),
         borderRadius: BorderRadius.circular(30),
@@ -246,7 +246,7 @@ class ExperienceSection extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Text(
-                  '${exp.startDate}  -  ${exp.endDate}',
+                  '${exp.startDate}  \n${exp.endDate}',
                   style: GoogleFonts.outfit(
                     color: theme.colorScheme.primary,
                     fontWeight: FontWeight.w800,

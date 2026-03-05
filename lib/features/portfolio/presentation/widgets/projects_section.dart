@@ -70,11 +70,16 @@ class ProjectsSection extends StatelessWidget {
           ScreenTypeLayout.builder(
             mobile: (_) => _buildGrid(context, 2, 0.45, 16),
             tablet: (_) => _buildGrid(context, 2, 0.48, 24),
+
+            // desktop: (_) => Padding(
+            //   padding: const EdgeInsets.only(left: 300, right: 300),
+            //   child: _buildGrid(context, 3, 0.45, 48),
+            // ),
             desktop: (_) => Center(
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 1400),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 40),
+                  padding: const EdgeInsets.symmetric(horizontal: 60),
                   child: _buildGrid(context, 3, 0.45, 48),
                 ),
               ),
