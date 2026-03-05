@@ -66,14 +66,18 @@ class ProjectsSection extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 32),
 
           ScreenTypeLayout.builder(
             mobile: (_) => _buildGrid(context, 2, 0.45, 16),
-            tablet: (_) => _buildGrid(context, 3, 0.48, 24),
-            desktop: (_) => Padding(
-              padding: const EdgeInsets.only(left: 300, right: 300),
-              child: _buildGrid(context, 3, 0.45, 48),
+            tablet: (_) => _buildGrid(context, 2, 0.48, 24),
+            desktop: (_) => Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 1400),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
+                  child: _buildGrid(context, 3, 0.45, 48),
+                ),
+              ),
             ),
           ),
         ],
@@ -148,7 +152,7 @@ class _ProjectCardState extends State<_ProjectCard> {
               Expanded(
                 child: Container(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(40),
+                    borderRadius: BorderRadius.circular(20),
                     boxShadow: [
                       BoxShadow(
                         color: _isHovered
