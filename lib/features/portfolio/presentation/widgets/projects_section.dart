@@ -71,7 +71,10 @@ class ProjectsSection extends StatelessWidget {
           ScreenTypeLayout.builder(
             mobile: (_) => _buildGrid(context, 2, 0.45, 16),
             tablet: (_) => _buildGrid(context, 3, 0.48, 24),
-            desktop: (_) => _buildGrid(context, 3, 0.45, 48),
+            desktop: (_) => Padding(
+              padding: const EdgeInsets.only(left: 300, right: 300),
+              child: _buildGrid(context, 3, 0.45, 48),
+            ),
           ),
         ],
       ),
